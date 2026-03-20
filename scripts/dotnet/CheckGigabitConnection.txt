@@ -1,0 +1,25 @@
+using System;
+using System.Net.NetworkInformation;
+
+public class NetworkCheck
+{
+    public static void CheckGigabitConnection()
+    {
+        foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+        {
+            if (nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet &&
+                nic.OperationalStatus == OperationalStatus.Up)
+            {
+                // Speed is in bits per second. 1 Gbps = 1,000,000,000 bps
+                if (nic.Speed >= 1000000000)
+                {
+                    Console.WriteLine($"Gigabit connection detected: {nic.Name} - {nic.Speed / 1000000} Mbps");
+                }
+                else
+                {
+                    Console.WriteLine($"Ethernet detected, but not Gigabit: {nic.Name} - {nic.Speed / 1000000} Mbps");
+                }
+            }
+        }
+    }
+}

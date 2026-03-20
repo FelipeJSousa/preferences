@@ -1,0 +1,1 @@
+dotnet ef migrations add AddPostoEmLote --project .\Valid.Componentes.DigiPac.Infrastructure\Valid.Componentes.DigiPac.Infrastructure.csproj --startup-project .\Valid.Componentes.DigiPac.Api\Valid.Componentes.DigiPac.Api.csproj

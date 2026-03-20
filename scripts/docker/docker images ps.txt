@@ -1,0 +1,1 @@
+docker images docker-workers --format "{{.Repository}}:{{.Tag}} - {{.CreatedAt}}"
